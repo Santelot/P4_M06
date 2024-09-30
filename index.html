@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P4-M06</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4-step-5').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook-P4-M06</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+<!-- Actividad 0 (1 paso) -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('revision-mision')">
+        <div class="title">
+            <span>📝 Actividad 0: Revisión de Misión (1 paso)</span>
+            <span>⏰ Tiempo: N/A</span>
+        </div>
+        <div class="subtitle">Proyectar la diapositiva 1 "Materiales y Preparación".</div>
+    </div>
+    <div id="revision-mision" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (N/A): Proyectar la diapositiva 1 con la lista de materiales. Verificar que todo esté listo para la clase.</div>
+            <div class="dialogue">N/A</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo-ritual')">
+        <div class="title">
+            <span>📝 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Dar la bienvenida y realizar el ritual de agradecimiento.</div>
+    </div>
+    <div id="saludo-ritual" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar la diapositiva 2 "Saludo y Ritual Gnius Club".</div>
+            <div class="dialogue">"¡Hola, Genios! 🌟 ¿Están listos para una nueva misión? Hoy vamos a trabajar en algo súper emocionante: vamos a crear un cronómetro interactivo con nuestro Microbit y prepararlo con Paper Programming. ¡Será una gran aventura!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar la diapositiva 3 "Estado de Ánimo".</div>
+            <div class="dialogue">"Antes de empezar, quiero saber cómo se sienten hoy. Si están emocionados, tápense los oídos; si sienten que necesitan más energía, tápense la boca. ¡Vamos a ver cómo está la energía en esta sala!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar la diapositiva 4 "Ritual de Agradecimiento".</div>
+            <div class="dialogue">"Ahora, vamos a juntar nuestras manos y dar las gracias por lo que vamos a aprender hoy. ¡Gracias por estar aquí, Genios! Hoy va a ser un gran día de aprendizaje y diversión."</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar la diapositiva 5 "Objetivos de la Misión".</div>
+            <div class="dialogue">"Hoy tenemos dos grandes objetivos: 1) Preparar la programación con Paper Programming. 2) Crear nuestro primer cronómetro en el Microbit. ¡Será una misión emocionante!"</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 2 (4 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('state-change')">
+        <div class="title">
+            <span>📝 Actividad 2: State Change (4 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Realizar la actividad de cambio de estado para activar las mentes de los estudiantes.</div>
+    </div>
+    <div id="state-change" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar la diapositiva 6 "State Change".</div>
+            <div class="dialogue">"¡Genios, es momento de activar nuestras mentes! Hoy haremos una actividad que nos ayudará a pensar como programadores. ¿Listos? ¡Vamos allá!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar la diapositiva 7 "Instrucciones: Programa a tu compañero".</div>
+            <div class="dialogue">"Imagina que eres un robot y tu compañero que está a la derecha, empezando por ti, 'nombre del alumno seleccionado', tiene que darte instrucciones para que realices una tarea sencilla, como caminar hacia una silla o levantar un objeto. El reto es que las instrucciones deben ser claras, paso a paso, ¡sin saltarse ningún detalle! Cambien de roles después de cada intento."</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar la diapositiva 8 "¿Qué pasó?".</div>
+            <div class="dialogue">"¿Qué les pareció ser un robot? ¿Fueron claras las instrucciones de su compañero? En la programación, si un paso está mal, el resultado no será el esperado. ¡Así que tenemos que ser muy precisos!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Sin diapositiva, solo diálogo del profesor.</div>
+            <div class="dialogue">"Programar es como darle instrucciones a un robot. Si un paso falta o no es claro, el programa no funcionará como queremos. Esta actividad nos ayuda a pensar en pasos precisos y claros, justo como en la programación."</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (7 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>📝 Actividad 3: Challenge (7 pasos)</span>
+            <span>⏰ Tiempo: 18.5 minutos</span>
+        </div>
+        <div class="subtitle">Programar un cronómetro en el Microbit usando Paper Programming.</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar la diapositiva 9 "Challenge: Programar Cronómetro".</div>
+            <div class="dialogue">"¡Genios, ha llegado el momento de nuestro reto del día! Vamos a programar un cronómetro en nuestro Microbit usando los botones A y B. ¿Listos para el desafío?"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Indicar que los estudiantes deben recoger las Magic Tablets.</div>
+            <div class="dialogue">"Ahora, un representante de cada equipo pasará al frente a recoger una Magic Tablet. Tienen 3 minutos para hacerlo, así que asegúrense de ser rápidos y organizados. ¡Vamos a recogerlas!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar la diapositiva 10 "Temporizador: 1 Minuto".</div>
+            <div class="dialogue">"Tienen 1 minuto para recoger las Magic Tablets. ¡El tiempo empieza ahora!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (10 minutos): Proyectar la diapositiva 11 "Paper Programming: Diseño del Cronómetro".</div>
+            <div class="dialogue">"Ahora, usen las Magic Tablets para hacer un Paper Programming. Dibujen cómo funcionará su cronómetro: el botón A lo empezará y el botón B lo detendrá. ¡Tienen 10 minutos para diseñarlo!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (10 minutos): Proyectar la diapositiva 12 "Programar el Cronómetro".</div>
+            <div class="dialogue">"Ahora que han diseñado su cronómetro, vamos a programarlo en MakeCode. Usen los botones A y B para controlar el cronómetro: el botón A para iniciar y el botón B para detener. ¡Manos a la obra!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (5 minutos): Proyectar la diapositiva 13 "Prueba del Cronómetro".</div>
+            <div class="dialogue">"¡Tiempo de prueba! Hagan clic en la bandera verde y vean si su cronómetro funciona como lo planearon. Si no, vuelvan al código y ajusten lo necesario."</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (0.5 minutos): Proyectar la diapositiva 14 "Revisión de Objetivos".</div>
+            <div class="dialogue">"Genios, hemos terminado el primer objetivo de la misión."</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (5 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('team-gnius')">
+        <div class="title">
+            <span>📝 Actividad 4: Team Gnius (5 pasos)</span>
+            <span>⏰ Tiempo: 8.5 minutos</span>
+        </div>
+        <div class="subtitle">Trabajar en parejas para implementar y discutir el cronómetro.</div>
+    </div>
+    <div id="team-gnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar la diapositiva 15 "Team Gnius".</div>
+            <div class="dialogue">"¡Genios, vamos a trabajar en parejas para ayudarnos mutuamente a implementar el cronómetro! Formen sus parejas y prepárense para el siguiente reto."</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Indicar que los estudiantes deben recoger los Microbits.</div>
+            <div class="dialogue">"Ahora, un integrante de cada pareja pasará a recoger un Microbit para que puedan implementar el código. ¡Recuerden ayudarse entre sí para completar el proyecto!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar la diapositiva 16 "Temporizador: 1 Minuto".</div>
+            <div class="dialogue">"Tienen 1 minuto para recoger los Microbits y conectar su código. ¡El tiempo corre, genios!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (5 minutos): Proyectar la diapositiva 17 "Implementación del Cronómetro".</div>
+            <div class="dialogue">"Es momento de transferir su código al Microbit. Si alguno de ustedes no terminó, este es el momento para apoyarse mutuamente y completar el código. ¡Manos a la obra! Tienen 5 minutos."</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (5 minutos): Proyectar la diapositiva 18 "Aplicaciones del Cronómetro".</div>
+            <div class="dialogue">"Una vez que su cronómetro esté funcionando, piensen en situaciones reales donde podrían usarlo. ¿En qué actividades creen que sería útil un cronómetro? Anoten sus ideas en sus Magic Tablets, tienen 5 minutos."</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (3 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honor-dojo')">
+        <div class="title">
+            <span>📝 Actividad 5: Honor de Dojo (3 pasos)</span>
+            <span>⏰ Tiempo: 4.5 minutos</span>
+        </div>
+        <div class="subtitle">Reflexión y cierre de la misión con reconocimiento al esfuerzo.</div>
+    </div>
+    <div id="honor-dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar la diapositiva 19 "Logros del Día".</div>
+            <div class="dialogue">"¡Genios, hoy hemos logrado grandes cosas! Programamos nuestro primer cronómetro en el Microbit y lo llevamos a la realidad. ¡Eso es algo increíble! ¡Felicidades por su esfuerzo y dedicación!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.5 minutos): Felicitar al grupo por el esfuerzo y la creatividad demostrada.</div>
+            <div class="dialogue">"Quiero que me cuenten, ¿qué fue lo que más les gustó del reto de hoy? Levanten la mano si quieren compartir su experiencia. ¡Es increíble ver todo lo que lograron!"</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar la diapositiva 20 "Honor de Dojo: Ordenando".</div>
+            <div class="dialogue">"Antes de irnos, recuerden que ser Genios también significa cuidar nuestro entorno. Vamos a recoger las Magic Tablets, los Microbits y a asegurarnos de que todo quede en orden para la próxima misión."</div>
+        </div>
+    </div>
+</div>
+</div> <!-- Cierre del container -->
+
+    <!-- Scripts adicionales si es necesario -->
+    <script>
+        // Agregar scripts adicionales aquí si es necesario
+    </script>
+
+    </body>
+    </html>
